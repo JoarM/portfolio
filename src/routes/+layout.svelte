@@ -30,6 +30,8 @@
         --foreground: 210 0% 93%;
         --border: 210 7.4% 34%;
         --muted-foreground: 210 7.4% 54%;
+
+        --side-padding: 2rem;
     }
 
     :global(html) {
@@ -41,6 +43,10 @@
         font-style: normal;
         font-variation-settings:
             "wdth" 100;
+    }
+
+    :global(img) {
+        max-width: 100%;
     }
 
     header {
@@ -61,13 +67,14 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-inline: 1rem;
+        padding-inline: var(--side-padding);
     }
 
     nav {
         display: flex;
         align-items: center;
         gap: .75rem;
+        margin-left: 3rem;
     }
 
     a {
