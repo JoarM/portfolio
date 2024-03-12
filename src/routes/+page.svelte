@@ -15,8 +15,10 @@
     <div class="about-me-wrapper">
         <h2>About me</h2>
         <p>
-            Im a 18 year old student and entrepreneur from Borås, Sweden. I study system development at LBS kreativa gymnasiet. 
-            I enjoy solving problems with code, my primary focus is fullstack web development but i also develop desktop and mobile apps.
+            <span>
+                Im a 18 year old student and entrepreneur from Borås, Sweden. I study system development at LBS kreativa gymnasiet.
+                I enjoy solving problems with code, my primary focus is fullstack web development but i also develop desktop and mobile apps.
+            </span>
         </p>
         <a href="/about-me" class="link">Read more</a>
     </div>
@@ -36,6 +38,10 @@
     @keyframes grow-in {
         from { scale: 0.9; }
         to { scale: 1; }
+    }
+
+    @keyframes scroll-text-reveal {
+        to { background-size: 100% 100%; }
     }
 
     .hero {
@@ -87,7 +93,7 @@
     .about-me {
         display: grid;
         max-width: 1240px;
-        padding-top: 3rem;
+        padding-block: 3rem;
         padding-inline: var(--side-padding);
         margin-inline: auto;
         min-height: calc(100vh - 74.4px);
@@ -102,6 +108,21 @@
 
     .about-me-wrapper * + * {
         margin-top: .5rem;
+    }
+
+    .about-me-wrapper > p > span {
+        font-size: 1.125rem;
+        font-weight: 500;
+        display: inline;
+        color: hsl(var(--foreground) / 0.2);
+        background-clip: text;
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        background-image: linear-gradient(90deg, hsl(var(--foreground)), hsl(var(--foreground)));
+        animation: scroll-text-reveal linear forwards;
+        animation-timeline: view();
+        animation-range-start: cover 200px;
+        animation-range-end: cover 500px;
     }
 
     .about-me-image {

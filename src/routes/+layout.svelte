@@ -53,6 +53,7 @@
         position: sticky;
         top: 0;
         width: 100%;
+        background-color: hsl(var(--background)/20%);
         padding-block: 1.25rem;
         backdrop-filter: blur(3px);
         border-bottom: 1px solid hsl(var(--border)/0);
