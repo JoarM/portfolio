@@ -1,16 +1,22 @@
+<script lang="ts">
+    import type { PageData } from './$types';
+	
+	export let data: PageData;
+</script>
+
 <section class="hero">
     <div class="hero-info">
         <h1>Joar Maltesson</h1>
         <p>I develop software that scales.</p>
     </div>
     <div class="hero-img">
-        <img src="/hero-image.webp" alt="">
+        <img src="/hero-image.webp" alt="of me">
     </div>
 </section>
 
 <section class="about-me">
     <div class="about-me-image">
-        <img src="/about-me.jpg" alt="">
+        <img src="/about-me.jpg" alt="Me walking on a sidewalk">
     </div>
     <div class="about-me-wrapper">
         <h2>About me</h2>
@@ -21,6 +27,23 @@
             </span>
         </p>
         <a href="/about-me" class="link">Read more</a>
+    </div>
+</section>
+
+<section class="projects">
+    <h2>My work</h2>
+    <div>
+        {#each data.projects as project}
+            <a href={`/projects/${project.slug}`}>
+                <article>
+                    <img src={project.coverImage} alt={`${project.title} cover image`}>
+                    <div>
+                        <h3>{project.title}</h3>
+                        <span>{project.tags.reduce((prev, tag, idx) => prev + tag + `${idx != project.tags.length - 1 ? " / " : ""}`, "")}</span>
+                    </div>
+                </article>
+            </a>
+        {/each}
     </div>
 </section>
 
@@ -36,8 +59,8 @@
 
 <style>
     @keyframes grow-in {
-        from { scale: 0.9; }
-        to { scale: 1; }
+        from { scale: 0.9; opacity: 0; }
+        to { scale: 1; opacity: 1; }
     }
 
     @keyframes scroll-text-reveal {
@@ -130,8 +153,65 @@
         max-width: 500px;
         animation: grow-in linear;
         animation-timeline: view();
-        animation-range-start: normal;
-        animation-range-end: contain;
+        animation-range-start: cover;
+        animation-range-end: contain 250px;
+    }
+
+    .projects {
+        max-width: 1240px;
+        margin-inline: auto;
+        padding-inline: var(--side-padding);
+        padding-bottom: 3rem;
+    }
+
+    .projects > h2 {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .projects > div {
+        margin-top: 1.5rem;
+    }
+
+    .projects > div > * + * {
+        margin-top: 2.5rem;
+    }
+
+    .projects > div > a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        max-width: 896px;
+        margin-inline: auto;
+    }
+
+    .projects > div > a > article > div {
+        display: flex;
+        gap: .5rem;
+        align-items: baseline;
+    }
+
+    .projects > div > a > article > div > h3 {
+        font-size: 1.25rem;
+    }
+
+    .projects > div > a > article > div > span {
+        color: hsl(var(--muted-foreground));
+        font-weight: 500;
+        font-size: .875rem;
+    }
+
+    .projects > div > a > article img {
+        border-radius: 6px;
+        animation: grow-in linear forwards;
+        animation-timeline: view();
+        animation-range-start: cover;
+        animation-range-end: cover 500px;
+    }
+
+    .projects > div > a:hover h3 {
+        text-decoration: underline;
+        text-underline-offset: 4px;
     }
 
     .contact {

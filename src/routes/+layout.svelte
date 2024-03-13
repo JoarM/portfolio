@@ -29,7 +29,7 @@
         --background: 210 5.6% 9%;
         --foreground: 210 0% 93%;
         --border: 210 7.4% 34%;
-        --muted-foreground: 210 7.4% 54%;
+        --muted-foreground: 210 7.4% 56%;
 
         --side-padding: 2rem;
     }
