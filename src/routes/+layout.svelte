@@ -7,8 +7,8 @@
         <a href="/">Joar Maltesson</a>
         <nav>
             <a href="/projects">Projects</a>
-            <a href="about-me">About me</a>
-            <a href="contact-me">Contact me</a>
+            <a href="/about">About me</a>
+            <a href="/contact">Contact me</a>
         </nav>
     </div>
 </header>
@@ -29,6 +29,7 @@
         --background: 210 5.6% 9%;
         --foreground: 210 0% 93%;
         --border: 210 7.4% 34%;
+        --muted: 210 7.4% 22%;
         --muted-foreground: 210 7.4% 56%;
 
         --side-padding: 2rem;

@@ -26,13 +26,13 @@
                 I enjoy solving problems with code, my primary focus is fullstack web development but i also develop desktop and mobile apps.
             </span>
         </p>
-        <a href="/about-me" class="link">Read more</a>
+        <a href="/about" class="link">Read more</a>
     </div>
 </section>
 
 <section class="projects">
     <h2>My work</h2>
-    <div>
+    <div class="project-wrapper">
         {#each data.projects as project}
             <a href={`/projects/${project.slug}`}>
                 <article>
@@ -45,6 +45,23 @@
             </a>
         {/each}
     </div>
+    <div class="more-projects">
+        <a href="/projects">
+            See all projects
+            <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="24" height="24" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            stroke-width="2" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"
+            >
+                <path d="m9 18 6-6-6-6"/>
+            </svg>
+        </a>
+    </div>
 </section>
 
 <section class="contact">
@@ -52,7 +69,9 @@
         <h2>Contact Me</h2>
         <p>Sparked your intrest? Contact me about anything from, job offers, collaborations or commissioning.</p>
         <div>
-            <a href="/contact-me" class="link">Contact me</a>
+            <a href="/contact" class="link">
+                Contact me
+            </a>
         </div>
     </div>
 </section>
@@ -157,6 +176,10 @@
         animation-range-end: contain 250px;
     }
 
+    .about-me-image > img {
+        border-radius: 6px;
+    }
+
     .projects {
         max-width: 1240px;
         margin-inline: auto;
@@ -169,39 +192,41 @@
         font-weight: bold;
     }
 
-    .projects > div {
+    .projects > .project-wrapper {
         margin-top: 1.5rem;
     }
 
-    .projects > div > * + * {
+    .projects > .project-wrapper > * + * {
         margin-top: 2.5rem;
     }
 
-    .projects > div > a {
+    .projects > .project-wrapper > a {
         display: block;
         text-decoration: none;
         color: inherit;
         max-width: 896px;
         margin-inline: auto;
+        border-radius: 8px;
     }
 
     .projects > div > a > article > div {
         display: flex;
         gap: .5rem;
         align-items: baseline;
+        flex-wrap: wrap-reverse;
     }
 
-    .projects > div > a > article > div > h3 {
+    .projects > .project-wrapper > a > article > div > h3 {
         font-size: 1.25rem;
     }
 
-    .projects > div > a > article > div > span {
+    .projects > .project-wrapper > a > article > div > span {
         color: hsl(var(--muted-foreground));
         font-weight: 500;
         font-size: .875rem;
     }
 
-    .projects > div > a > article img {
+    .projects > .project-wrapper > a > article img {
         border-radius: 6px;
         animation: grow-in linear forwards;
         animation-timeline: view();
@@ -209,9 +234,40 @@
         animation-range-end: cover 500px;
     }
 
-    .projects > div > a:hover h3 {
+    .projects > .project-wrapper > a:hover h3 {
         text-decoration: underline;
         text-underline-offset: 4px;
+    }
+
+    .project-wrapper > a:focus-visible {
+        --ring-offset: 4px;
+        outline: none;
+        box-shadow: 0px 0px 0px var(--ring-offset) hsl(var(--background)), 0px 0px 0px calc(2px + var(--ring-offset)) hsl(var(--foreground));
+    }
+
+    .more-projects {
+        margin-top: .75rem;
+        max-width: 896px;
+        margin-inline: auto;
+    }
+
+    .more-projects > a {
+        color: inherit;
+        font-size: 1rem;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .more-projects > a > svg {
+        margin-left: .5rem;
+        height: 1rem;
+        width: 1rem;
+        transition: transform 250ms;
+    }
+
+    .more-projects > a:hover > svg {
+        transform: translateX(4px);
     }
 
     .contact {
@@ -279,6 +335,12 @@
 
     .link:hover {
         background-color: hsl(210 5.6% 13%);
+    }
+
+    .link:focus-visible {
+        --ring-offset: 2px;
+        outline: none;
+        box-shadow: 0px 0px 0px var(--ring-offset) hsl(var(--background)), 0px 0px 0px calc(1px + var(--ring-offset)) hsl(var(--muted-foreground));
     }
 
     .link::after {
