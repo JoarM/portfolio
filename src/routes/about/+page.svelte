@@ -79,7 +79,7 @@
             margin-right: var(--image-width);   
             margin-left: max(calc((100vw - 1240px) / 2), 0px);
             min-height: calc(100vh - var(--header-height));
-            min-height: calc(100dvh - var(--header-height));
+            min-height: calc(100svh - var(--header-height));
         }
     }
 

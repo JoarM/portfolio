@@ -94,7 +94,7 @@
         padding-block: 5rem;
         margin-inline: auto;
         min-height: calc(100vh - var(--header-height));
-        min-height: calc(100dvh - var(--header-height));
+        min-height: calc(100svh - var(--header-height));
         place-items: center;
     }
 
