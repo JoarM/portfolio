@@ -3,6 +3,8 @@ import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import markdownToHtml from '$lib/utils';
 
+export const prerender = true;
+
 export const load: PageServerLoad = async ({ params }) => {
     const project = getProjectBySlug(params.slug)
 
