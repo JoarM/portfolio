@@ -5,7 +5,7 @@
 <header class:not-top={atTop}>
     <div>
         <a href="/">Joar Maltesson</a>
-        <nav>
+        <nav class="open">
             <a href="/projects">Projects</a>
             <a href="/about">About me</a>
             <a href="/contact">Contact me</a>
@@ -18,6 +18,17 @@
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap');
+
+    @keyframes nav-in {
+        from {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+    }
 
     :global(*) {
         margin: 0;
@@ -54,12 +65,12 @@
         position: sticky;
         top: 0;
         width: 100%;
-        background-color: hsl(var(--background)/20%);
         padding-block: 1.25rem;
-        backdrop-filter: blur(3px);
+        background-color: hsl(var(--background));
         border-bottom: 1px solid hsl(var(--border)/0);
         transition: border-bottom 250ms;
         z-index: 50;
+        scrollbar-gutter: stable;    
     }
 
     header > div {
@@ -73,10 +84,19 @@
     }
 
     nav {
-        display: flex;
-        align-items: center;
-        gap: .75rem;
-        margin-left: 3rem;
+        position: absolute; 
+        top: 100%;
+        height: 0;
+        overflow: hidden;
+        background-color: hsl(var(--background));
+        width: calc(100vw + 2rem);
+        left: -2rem;
+        padding-inline: 4rem 2rem;
+    }
+
+    .open {
+        height: calc(100vh - 74px);
+        height: calc(100dvh - 74px);
     }
 
     a {
@@ -91,10 +111,51 @@
     }
 
     nav > a {
-        font-size: 500;
+        font-weight: bold;
+        display: block;
+        font-size: 1.75rem;
+        text-decoration: none;
+        padding-block: .75rem;
+        border-bottom: 1px solid hsl(var(--border));
+        transition: color 200ms ease;
+        animation: nav-in linear forwards;
+    }
+
+    nav > a:hover {
+        color: hsl(var(--muted-foreground));
     }
 
     .not-top {
         border-bottom: 1px solid hsl(var(--border));
+    }
+
+    @media (min-width: 460px) {
+        header {
+            background-color: hsl(var(--background)/50%);
+            backdrop-filter: blur(3px);
+        }
+
+        nav {
+            position: static;
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            margin-left: 3rem;
+            background-color: transparent;
+            backdrop-filter: none;
+            width: auto;
+            padding-inline: 0;
+            left: auto;
+            height: auto;
+            background-color: hsl(var(--background) / 50%);
+            backdrop-filter: blur(3px);
+        }
+
+        nav > a {
+            display: inline-block;
+            font-weight: 500;
+            text-decoration: underline;
+            font-size: 1rem;
+        }
     }
 </style>
