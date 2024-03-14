@@ -92,7 +92,7 @@
         padding-inline: var(--side-padding);
         margin-inline: auto;
         min-height: calc(100vh - var(--header-height));
-        min-height: calc(100dvh - var(--header-height));
+        min-height: calc(100svh - var(--header-height));
         grid-template-rows: 300px 1fr;
     }
 
@@ -139,7 +139,7 @@
         padding-inline: var(--side-padding);
         margin-inline: auto;
         min-height: calc(100vh - var(--header-height));
-        min-height: calc(100dvh - var(--header-height));
+        min-height: calc(100svh - var(--header-height));
         grid-template-rows: 1fr 300px;
         place-items: center;
     }
@@ -313,7 +313,7 @@
 
     .contact-wrapper > div {
         height: 50vh;
-        height: 50dvh;
+        height: 50svh;
         display: grid;
         place-items: center;
     }
