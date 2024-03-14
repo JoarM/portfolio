@@ -2,6 +2,50 @@
 	"version": 3,
 	"routes": [
 		{
+			"src": "/projects",
+			"dest": "/projects/"
+		},
+		{
+			"src": "/projects/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects"
+			}
+		},
+		{
+			"src": "/projects/rizzbot",
+			"dest": "/projects/rizzbot/"
+		},
+		{
+			"src": "/projects/rizzbot/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects/rizzbot"
+			}
+		},
+		{
+			"src": "/projects/nauta",
+			"dest": "/projects/nauta/"
+		},
+		{
+			"src": "/projects/nauta/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects/nauta"
+			}
+		},
+		{
+			"src": "/projects/cityklippet",
+			"dest": "/projects/cityklippet/"
+		},
+		{
+			"src": "/projects/cityklippet/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects/cityklippet"
+			}
+		},
+		{
 			"src": "/_app/immutable/.+",
 			"headers": {
 				"cache-control": "public, immutable, max-age=31536000"
@@ -15,5 +59,21 @@
 			"dest": "/fn"
 		}
 	],
-	"overrides": {}
+	"overrides": {
+		"index.html": {
+			"path": ""
+		},
+		"projects.html": {
+			"path": "projects"
+		},
+		"projects/rizzbot.html": {
+			"path": "projects/rizzbot"
+		},
+		"projects/nauta.html": {
+			"path": "projects/nauta"
+		},
+		"projects/cityklippet.html": {
+			"path": "projects/cityklippet"
+		}
+	}
 }
