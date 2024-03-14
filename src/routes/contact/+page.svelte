@@ -1,21 +1,71 @@
+<script lang="ts">
+    import type { ActionData } from './$types';
+    import { enhance } from '$app/forms';
+
+    export let form: ActionData;
+
+    let formLoading = false;
+</script>
+
 <main>
     <div>
         <h1>Contact me</h1>
         <p>Contact me about anything from, job offers, collaborations or commissioning.</p>
-        <form action="">
+        <form method="POST" use:enhance={() => {
+            formLoading = true;
+            return async ({ update }) => {
+                formLoading = false;
+                update();
+            };
+        }}>
             <div>
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" placeholder="John Doe">
+                {#if form?.error?.name}
+                    <p class="error">{form.error.name}</p>
+                {/if}
             </div>
             <div>
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" placeholder="example@gmail.com">
+                {#if form?.error?.email}
+                    <p class="error">{form.error.email}</p>
+                {/if}
             </div>
             <div>
                 <label for="message">Message</label>
                 <textarea rows="6" name="message" id="message"/>
+                {#if form?.error?.message}
+                    <p class="error">{form.error.message}</p>
+                {/if}
             </div>
-            <button type="submit">Send message</button>
+            <button 
+            type="submit"
+            aria-disabled={formLoading}
+            >
+                {#if formLoading}
+                    <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="24" 
+                    height="24" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-width="2" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round"
+                    >
+                        <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+                    </svg>
+                {/if}
+                Send message
+            </button>
+            {#if form?.message}
+                <p class="error">{form.message}</p>
+            {/if}
+            {#if form?.success}
+                <p>Thank you for your message, i will get back to you as soon as possible.</p>
+            {/if}
         </form>
         <div class="info">
             <a href="mailto:joar.maltesson@gmail.com" class="email">joar.maltesson@gmail.com</a>
@@ -28,14 +78,23 @@
 </main>
 
 <style>
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
     main {
         display: grid;
         max-width: 576px;
         padding-inline: var(--side-padding);
         padding-block: 5rem;
         margin-inline: auto;
-        min-height: calc(100vh - 74.4px);
-        min-height: calc(100dvh - 74.4px);
+        min-height: calc(100vh - var(--header-height));
+        min-height: calc(100dvh - var(--header-height));
         place-items: center;
     }
 
@@ -49,6 +108,13 @@
 
     form * + * {
         margin-top: .75rem;
+    }
+
+    input, 
+    textarea, 
+    button {
+        font-size: 0.875rem;
+        font-weight: 500;
     }
 
     input, textarea {
@@ -120,6 +186,22 @@
         transform: translate(10px, 10px);
     }
 
+    button[aria-disabled="true"] {
+        color: hsl(var(--foreground) / 50%);
+        border: 1px solid hsl(var(--foreground) / 50%);
+    }
+
+    button[aria-disabled="true"]::after {
+        border: 1px solid hsl(var(--foreground) / 50%);
+    }
+
+    button > svg {
+        height: 1rem;
+        width: 1rem;
+        margin-right: .5rem;
+        animation: spin 1s linear infinite;
+    }
+
     .info {
         margin-top: .75rem;
         display: grid;
@@ -145,6 +227,13 @@
         color: hsl(var(--muted-foreground));
     }
 
+    .info a:focus-visible {
+        --ring-offset: 4px;
+        outline: none;
+        box-shadow: 0px 0px 0px var(--ring-offset) hsl(var(--background)), 0px 0px 0px calc(1px + var(--ring-offset)) hsl(var(--foreground));
+        border-radius: 2px;
+    }
+
     .info .email {
         display: inline;
         position: relative;
@@ -155,6 +244,12 @@
 
     .info .email:hover {
         color: hsl(var(--foreground));
+    }
+
+    .info .email:focus-visible {
+        outline: none;
+        box-shadow: initial;
+        border-radius: initial;
     }
 
     .info .email::before {
@@ -169,7 +264,12 @@
         transition: height 250ms;
     }
 
-    .info .email:hover::before {
+    .info .email:hover::before,
+    .info .email:focus-visible::before {
         height: 100%;
+    }
+
+    .error {
+        color: hsl(0 62% 52%);
     }
 </style>

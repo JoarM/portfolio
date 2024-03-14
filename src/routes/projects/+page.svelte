@@ -1,13 +1,18 @@
 <script lang="ts">
-    import type { PageData } from './$types';
+    import type { PageData, Snapshot } from './$types';
 	
 	export let data: PageData;
+
+    export const snapshot: Snapshot<number> = {
+        capture: () => window.scrollY,
+        restore: (value) => (window.scrollY = value),
+    }
 </script>
 
 <div class="my-work-wrapper">
     <h1>My work</h1>
     <p>
-        Here you can find a collection of some of my work, 
+        Here you can find a collection of some of my work,
         u can follow my journey learning software develpoment from my first web develpoment project to my most recent projects.
     </p>
     <div class="project-wrapper">

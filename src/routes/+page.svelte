@@ -7,7 +7,7 @@
 <section class="hero">
     <div class="hero-info">
         <h1>Joar Maltesson</h1>
-        <p>I develop software that scales.</p>
+        <p>I develop software for every day use.</p>
     </div>
     <div class="hero-img">
         <img src="/hero-image.webp" alt="of me">
@@ -91,8 +91,8 @@
         max-width: 1240px;
         padding-inline: var(--side-padding);
         margin-inline: auto;
-        min-height: calc(100vh - 74.4px);
-        min-height: calc(100dvh - 74.4px);
+        min-height: calc(100vh - var(--header-height));
+        min-height: calc(100dvh - var(--header-height));
         grid-template-rows: 300px 1fr;
     }
 
@@ -138,8 +138,8 @@
         padding-block: 3rem;
         padding-inline: var(--side-padding);
         margin-inline: auto;
-        min-height: calc(100vh - 74.4px);
-        min-height: calc(100dvh - 74.4px);
+        min-height: calc(100vh - var(--header-height));
+        min-height: calc(100dvh - var(--header-height));
         grid-template-rows: 1fr 300px;
         place-items: center;
     }

@@ -1,8 +1,9 @@
 import { getProjectBySlug } from '$lib/api';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
+import markdownToHtml from '$lib/utils';
 
-export const load: PageServerLoad = ({ params }) => {
+export const load: PageServerLoad = async ({ params }) => {
     const project = getProjectBySlug(params.slug)
 
     if (!project) {
@@ -11,7 +12,10 @@ export const load: PageServerLoad = ({ params }) => {
 		});
     }
 
+	const content = await markdownToHtml(project.content);
+
 	return {
-		project,
+		...project,
+		content,
 	};
 };
