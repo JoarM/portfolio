@@ -4,13 +4,20 @@
 	export let data: PageData;
 </script>
 
+<svelte:head>
+    <title>Portfolio | Joar</title>
+    <meta name="description" content="Im a 18 year old student and entrepreneur from Borås, Sweden. I study system development at LBS kreativa gymnasiet.
+    I enjoy solving problems with code, my primary focus is fullstack web development but i also develop desktop and mobile apps.">
+    <meta property="og:image" content="/hero-image.webp" />
+</svelte:head>
+
 <section class="hero">
     <div class="hero-info">
         <h1>Joar Maltesson</h1>
         <p>I develop software for every day use.</p>
     </div>
     <div class="hero-img">
-        <img src="/hero-image.webp" alt="of me">
+        <img src="/hero-image.webp" alt="of me" fetchpriority="high">
     </div>
 </section>
 

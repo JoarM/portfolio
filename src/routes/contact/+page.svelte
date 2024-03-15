@@ -7,6 +7,12 @@
     let formLoading = false;
 </script>
 
+<svelte:head>
+    <title>Contact | Joar</title>
+    <meta name="description" content="Contact me via the website or send me a email or DM on social media.">
+    <meta property="og:image" content="/contact-image.jpg" />
+</svelte:head>
+
 <main>
     <div>
         <h1>Contact me</h1>

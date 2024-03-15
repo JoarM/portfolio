@@ -4,6 +4,12 @@
 	export let data: PageData;
 </script>
 
+<svelte:head>
+    <title>{data.title} | Joar</title>
+    <meta name="description" content={`Read about me project ${data.title}`}>
+    <meta property="og:image" content={data.coverImage} />
+</svelte:head>
+
 <main>
     <article>
         <h1>{data.title}</h1>

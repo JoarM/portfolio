@@ -9,6 +9,11 @@
     }
 </script>
 
+<svelte:head>
+    <title>Projects | Joar</title>
+    <meta name="description" content="See all my projects and read about the technical implementation or what I learned making it.">
+</svelte:head>
+
 <div class="my-work-wrapper">
     <h1>My work</h1>
     <p>

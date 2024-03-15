@@ -1,10 +1,11 @@
 <svelte:head>
     <title>About me | Joar</title>
     <meta name="description" content="Read to learn more about me as a person and what I do.">
+    <meta property="og:image" content="/about-me-2.webp" />
 </svelte:head>
 
 <div class="cover-image">
-    <img src="/about-me-2.webp" alt="Me by the sunset">
+    <img src="/about-me-2.webp" alt="Me by the sunset" fetchpriority="high">
 </div>
 
 <main>
