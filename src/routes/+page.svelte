@@ -10,7 +10,7 @@
         <p>I develop software for every day use.</p>
     </div>
     <div class="hero-img">
-        <img src="/hero-image.webp" alt="of me" width="1000" height="1000">
+        <img src="/hero-image.webp" alt="of me">
     </div>
 </section>
 
@@ -19,8 +19,6 @@
         <img 
         src="/about-me.webp" 
         alt="Me walking on a sidewalk" 
-        width="3024" 
-        height="4032"
         loading="lazy"
         >
     </div>
