@@ -5,7 +5,10 @@
 
     let atTop = false;
     let menuOpen = false;
-    afterNavigate(() => menuOpen = false);
+    afterNavigate(() => {
+        menuOpen = false;
+        atTop = !!window.screenY;
+    });
 </script>
 
 <header class:not-top={atTop}>

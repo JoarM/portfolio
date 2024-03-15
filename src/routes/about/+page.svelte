@@ -1,12 +1,17 @@
+<svelte:head>
+    <title>About me | Joar</title>
+    <meta name="description" content="Read to learn more about me as a person and what I do.">
+</svelte:head>
+
 <div class="cover-image">
-    <img src="/about-me-2.jpg" alt="Me in by the sunset">
+    <img src="/about-me-2.webp" alt="Me by the sunset">
 </div>
 
 <main>
     <div>
         <h1>About me</h1>
         <p>
-            Hey my name is Joar Maltesson I use Steep as my nick on many social media platforms. 
+            Hey my name is Joar Maltesson I use Steep my nick on many social media platforms. 
             I'm a student at LBS kreativa gymnasiet Borås, Sweden. There I study software development, my passion 
             is creating amazing user experinces on the web and on native platforms.
         </p>

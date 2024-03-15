@@ -10,13 +10,19 @@
         <p>I develop software for every day use.</p>
     </div>
     <div class="hero-img">
-        <img src="/hero-image.webp" alt="of me">
+        <img src="/hero-image.webp" alt="of me" width="1000" height="1000">
     </div>
 </section>
 
 <section class="about-me">
     <div class="about-me-image">
-        <img src="/about-me.jpg" alt="Me walking on a sidewalk">
+        <img 
+        src="/about-me.webp" 
+        alt="Me walking on a sidewalk" 
+        width="3024" 
+        height="4032"
+        loading="lazy"
+        >
     </div>
     <div class="about-me-wrapper">
         <h2>About me</h2>
@@ -26,7 +32,7 @@
                 I enjoy solving problems with code, my primary focus is fullstack web development but i also develop desktop and mobile apps.
             </span>
         </p>
-        <a href="/about" class="link">Read more</a>
+        <a href="/about" class="link">About me</a>
     </div>
 </section>
 
@@ -36,7 +42,11 @@
         {#each data.projects as project}
             <a href={`/projects/${project.slug}`}>
                 <article>
-                    <img src={project.coverImage} alt={`${project.title} cover image`}>
+                    <img 
+                    src={project.coverImage} 
+                    alt={`${project.title} cover image`} 
+                    loading="lazy"
+                    >
                     <div>
                         <h3>{project.title}</h3>
                         <span>{project.tags.reduce((prev, tag, idx) => prev + tag + `${idx != project.tags.length - 1 ? " / " : ""}`, "")}</span>
