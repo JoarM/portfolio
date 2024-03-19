@@ -1,6 +1,6 @@
 ---
 title: "Rizzbot AI"
-tags: "LLM,AI,UI/UX,Responsive design"
+tags: "LLM,AI,UI/UX,Next JS,Responsive design"
 coverImage: "/assets/rizzbotai-cover.webp"
 date: "2024-02-18T19:02:54+00:00"
 ---
