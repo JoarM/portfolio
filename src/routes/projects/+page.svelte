@@ -24,7 +24,9 @@
         {#each data.projects as project}
             <a href={`/projects/${project.slug}`}>
                 <article>
-                    <img src={project.coverImage} alt={`${project.title} cover image`}>
+                    <div>
+                        <img src={project.coverImage} alt={`${project.title} cover image`}>
+                    </div>
                     <div>
                         <h3>{project.title}</h3>
                         <span>{project.tags.reduce((prev, tag, idx) => prev + tag + `${idx != project.tags.length - 1 ? " / " : ""}`, "")}</span>
@@ -102,6 +104,7 @@
         animation-timeline: view();
         animation-range-start: cover;
         animation-range-end: cover 500px;
+        margin-inline: auto;
     }
 
     .project-wrapper > a:hover h3 {

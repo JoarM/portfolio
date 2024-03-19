@@ -47,12 +47,14 @@
         {#each data.projects as project}
             <a href={`/projects/${project.slug}`}>
                 <article>
-                    <img 
-                    src={project.coverImage} 
-                    alt={`${project.title} cover image`} 
-                    loading="lazy"
-                    >
-                    <div>
+                    <div class="project-image-wrapper">
+                        <img 
+                        src={project.coverImage} 
+                        alt={`${project.title} cover image`} 
+                        loading="lazy"
+                        >
+                    </div>
+                    <div class="project-info">
                         <h3>{project.title}</h3>
                         <span>{project.tags.reduce((prev, tag, idx) => prev + tag + `${idx != project.tags.length - 1 ? " / " : ""}`, "")}</span>
                     </div>
@@ -224,11 +226,17 @@
         border-radius: 8px;
     }
 
-    .projects > div > a > article > div {
+    .project-info {
         display: flex;
         gap: .5rem;
         align-items: baseline;
         flex-wrap: wrap-reverse;
+    }
+
+    .project-image-wrapper {
+        display: flex;
+        place-items: center;
+        width: 100%;
     }
 
     .projects > .project-wrapper > a > article > div > h3 {
@@ -247,6 +255,9 @@
         animation-timeline: view();
         animation-range-start: cover;
         animation-range-end: cover 500px;
+        object-fit: contain;
+        margin-inline: auto;
+        height: 100%;
     }
 
     .projects > .project-wrapper > a:hover h3 {

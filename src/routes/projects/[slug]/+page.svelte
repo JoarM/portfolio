@@ -13,7 +13,7 @@
 <main>
     <article>
         <h1>{data.title}</h1>
-        <div>
+        <div class="cover-image-wrapper">
             <img src={data.coverImage} alt={`Cover image for ${data.title}`} class="cover-image">
         </div>
         <div class="markdown">
@@ -70,9 +70,14 @@
         font-size: 2.5rem;
     }
 
-    .cover-image {
+    .cover-image-wrapper {
+        display: flex;
         margin-top: 1rem;
+    }
+
+    .cover-image {
         border-radius: 6px;
+        margin-inline: auto;
     }
 
     .markdown {
