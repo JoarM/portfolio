@@ -6,15 +6,14 @@
 
 <svelte:head>
     <title>Portfolio | Joar</title>
-    <meta name="description" content="Im a 18 year old student and entrepreneur from Borås, Sweden. I study system development at LBS kreativa gymnasiet.
-    I enjoy solving problems with code, my primary focus is fullstack web development but i also develop desktop and mobile apps.">
+    <meta name="description" content="Im a 18 year old junior software developer from Borås, Sweden. My primary focus is developing software that simply works "award winning or not" and learning in the process, my primary focus is fullstack web development but i also develop desktop and mobile applications.">
     <meta property="og:image" content="/hero-image.webp" />
 </svelte:head>
 
 <section class="hero">
     <div class="hero-info">
         <h1>Joar Maltesson</h1>
-        <p>I develop software for every day use.</p>
+        <p>I develop award winning software "sometimes" that simply works.</p>
     </div>
     <div class="hero-img">
         <img src="/hero-image.webp" alt="of me" fetchpriority="high">
@@ -33,8 +32,7 @@
         <h2>About me</h2>
         <p>
             <span>
-                Im a 18 year old student and entrepreneur from Borås, Sweden. I study system development at LBS kreativa gymnasiet.
-                I enjoy solving problems with code, my primary focus is fullstack web development but i also develop desktop and mobile apps.
+                Im a 18 year old junior software developer from Borås, Sweden. My primary focus is developing software that simply works "award winning or not" and learning in the process, my primary focus is fullstack web development but i also develop desktop and mobile applications.
             </span>
         </p>
         <a href="/about" class="link">About me</a>
