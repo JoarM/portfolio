@@ -6,7 +6,7 @@
 
 <svelte:head>
     <title>Portfolio | Joar</title>
-    <meta name="description" content="Im a 18 year old junior software developer from Borås, Sweden. My primary focus is developing software that simply works "award winning or not" and learning in the process, my primary focus is fullstack web development but i also develop desktop and mobile applications.">
+    <meta name="description" content="Im a 18 year old junior software developer from Borås, Sweden. My primary focus is developing software that simply works &ldquoaward winning or not&rdquo and learning in the process, my primary focus is fullstack web development but i also develop desktop and mobile applications.">
     <meta property="og:image" content="/hero-image.webp" />
 </svelte:head>
 
